@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://mm02t0ay4ddp"]
+
+[ext_resource type="Script" path="res://scripts/ui/mainMenu.cs" id="2_aglhe"]
+[ext_resource type="Theme" uid="uid://cq2e8oc8lvi8k" path="res://themes/defualt.tres" id="2_fwovs"]
+[ext_resource type="Script" path="res://scripts/ui/PlayButton.cs" id="3_am5ol"]
+
+[sub_resource type="Gradient" id="Gradient_vuqv5"]
+offsets = PackedFloat32Array(0, 0.4, 1)
+colors = PackedColorArray(0.849382, 0.372075, 5.77569e-07, 1, 0.996078, 0.47451, 0, 1, 1, 0.749898, 0.18679, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a7swn"]
+gradient = SubResource("Gradient_vuqv5")
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_fwovs")
+script = ExtResource("2_aglhe")
+
+[node name="Backgroud" type="TextureRect" parent="."]
+z_as_relative = false
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 1023.0
+texture = SubResource("GradientTexture1D_a7swn")
+
+[node name="PlayButton" type="Button" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.023
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 692.448
+offset_bottom = -82.0
+theme = ExtResource("2_fwovs")
+text = "Play!"
+script = ExtResource("3_am5ol")
