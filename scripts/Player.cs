@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public partial class Player : CharacterBody2D
 {
@@ -18,9 +20,11 @@ public partial class Player : CharacterBody2D
     private bool clickDown = false;
     private Vector2 mousePos;
     float targetAngle;
+    public List<int> positions;
 
     public override void _Ready() {
         RePosition();
+        positions = new List<int>(0);
         tap = GetNode<Label>("../Tap");
     }   
     public void RePosition() {
@@ -30,6 +34,15 @@ public partial class Player : CharacterBody2D
 
     public Vector2 GetPosition() {
         return Position;
+    }
+
+    public void SetValue(int y) {
+        positions.Clear();
+        positions.Add(y+300);
+    }
+
+    public int GetValues() {
+        return positions.LastOrDefault(15);
     }
 
     public override void _Process(double delta)
@@ -59,4 +72,10 @@ public partial class Player : CharacterBody2D
         Position = position;
         
     }
+
+    internal void SetValue(double v)
+    {
+        throw new NotImplementedException();
+    }
+
 }

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dderwc6alxmyk"]
+[gd_scene load_steps=13 format=3 uid="uid://dderwc6alxmyk"]
 
 [ext_resource type="Script" path="res://scripts/Game.cs" id="1_23mwj"]
+[ext_resource type="Script" path="res://scripts/Camera.cs" id="2_5vldj"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_578kt"]
 [ext_resource type="Texture2D" uid="uid://c6l7w1wuyitjp" path="res://assets/ball_base.png" id="3_nm1ro"]
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="4_472y6"]
@@ -12,7 +13,7 @@
 radius = 59.0762
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ccxd"]
-radius = 54.5894
+radius = 64.3334
 
 [sub_resource type="Gradient" id="Gradient_yww1q"]
 offsets = PackedFloat32Array(0.00645161, 0.548387, 0.980645)
@@ -23,6 +24,10 @@ gradient = SubResource("Gradient_yww1q")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_23mwj")
+
+[node name="Camera" type="Camera2D" parent="."]
+scale = Vector2(0.226563, 0.225236)
+script = ExtResource("2_5vldj")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 5
@@ -50,11 +55,13 @@ script = ExtResource("4_472y6")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-scale = Vector2(0.227, 0.227)
+position = Vector2(0, 1.05128)
+scale = Vector2(0.227, 0.254607)
 texture = ExtResource("5_qad1s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("CircleShape2D_6ccxd")
+disabled = true
 
 [node name="Tap" type="Label" parent="."]
 offset_left = -621.0
@@ -75,6 +82,7 @@ theme = ExtResource("4_o8cob")
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("4_xngiy")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
