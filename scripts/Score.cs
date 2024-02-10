@@ -22,6 +22,6 @@ public partial class Score : Label
 	{
 		position.Y = player.Position.Y;
 		Position = position;
-		Text = Math.Round((player.Position.Y / 100)*-1,0).ToString();
+		//Text = Math.Round((player.Position.Y / 100)*-1,0).ToString();
 	}
 }

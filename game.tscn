@@ -36,6 +36,7 @@ script = ExtResource("2_578kt")
 JumpForce = 721.0
 downForceModifier = 1.2
 downForce = 20.0
+force = 25.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]

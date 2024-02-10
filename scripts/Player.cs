@@ -14,6 +14,10 @@ public partial class Player : CharacterBody2D
     public float downForce = 4.1f;
     [Export]
     public int playerMargin = 50;
+    [Export]
+    public float maxSpeed = 100f;
+    [Export]
+    public float force = 12f;
     private Label tap;
     private float velY;
     private bool started = false;
@@ -67,7 +71,7 @@ public partial class Player : CharacterBody2D
         if(position.X>GetWindow().Size.X-playerMargin||position.X<=0+playerMargin) {
             targetAngle = targetAngle*-1;
         }
-        position.X = position.X - targetAngle/25;
+        position.X = position.X - targetAngle/force;
         position.Y -= velY*(float)delta;
         Position = position;
         

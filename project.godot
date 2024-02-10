@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Jumpy Ball"
 run/main_scene="res://game.tscn"
-config/features=PackedStringArray("4.1", "C#", "Mobile")
+config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
@@ -35,3 +35,4 @@ jump={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

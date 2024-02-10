@@ -26,8 +26,16 @@ public partial class Game : Node2D
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
-		background.Position = new Vector2(0,player.Position.Y-GetWindow().Size.Y/2);
+		background.Position = new Vector2(0,(player.Position.Y-GetWindow().Size.Y/2)-150);
+		background.SetSize(GetWindow().Size*2);
 	}
+
+    public override void _Input(InputEvent @event)
+    {
+        if(@event is InputEventScreenTouch screenTouch) {
+			score.Text = ""+screenTouch.Position.X+","+screenTouch.Position.Y;
+		} 
+    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -45,7 +53,6 @@ public partial class Game : Node2D
     public void OnResize() {
 		player.RePosition();
 		score.RePosition();
-		background.SetSize(GetWindow().Size*2);
-		
+		background.SetSize(GetWindow().Size);
 	}
 }
